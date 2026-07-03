@@ -10,3 +10,8 @@ def subtract(a, b):
 
 def multiply(a, b):
     return a * b
+
+def calculate_score(score):
+    # Bug: what if score is 0?
+    return 100 / score
+
