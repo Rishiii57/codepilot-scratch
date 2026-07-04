@@ -12,6 +12,7 @@ def multiply(a, b):
     return a * b
 
 def calculate_score(score):
-    # Bug: what if score is 0?
+    # Handle the case where score is 0 to prevent ZeroDivisionError
+    if score == 0:
+        return 0
     return 100 / score
-
