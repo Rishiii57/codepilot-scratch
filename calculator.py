@@ -1,17 +1,9 @@
-def divide(a, b):
-    # Bug: what if b is 0?
-    return a / b
-
-def add(a, b):
-    return a + b
-
-def subtract(a, b):
-    return a - b
+import unittest
 
 def multiply(a, b):
     return a * b
 
 def calculate_score(score):
-    # Bug: what if score is 0?
+    if score == 0:
+        return 0
     return 100 / score
-
