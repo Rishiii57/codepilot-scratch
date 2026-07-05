@@ -23,5 +23,31 @@ class TestCalculator(unittest.TestCase):
             calculate_score(-5)
         self.assertEqual(str(context.exception), "Score cannot be negative")
 
+    def test_calculate_score_with_non_numeric_input(self):
+        """
+        Test that calculate_score with non-numeric input raises ValueError
+        with the exact message 'Input must be a numeric value'.
+        """
+        # Test with a string
+        with self.assertRaises(ValueError) as context:
+            calculate_score("invalid")
+        self.assertEqual(str(context.exception), "Input must be a numeric value")
+
+        # Test with a boolean
+        with self.assertRaises(ValueError) as context:
+            calculate_score(True)
+        self.assertEqual(str(context.exception), "Input must be a numeric value")
+
+        # Test with None
+        with self.assertRaises(ValueError) as context:
+            calculate_score(None)
+        self.assertEqual(str(context.exception), "Input must be a numeric value")
+
+        # Test with a list
+        with self.assertRaises(ValueError) as context:
+            calculate_score([1, 2, 3])
+        self.assertEqual(str(context.exception), "Input must be a numeric value")
+
+
 if __name__ == '__main__':
     unittest.main()
